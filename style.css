@@ -1,3 +1,4 @@
+/* Reset e configurações globais */
 * {
   margin: 0;
   padding: 0;
@@ -8,18 +9,23 @@ body {
   font-family: Arial, sans-serif;
 }
 
+/* Estilo do Header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
 }
 
 .menu-logo {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.menu-logo img{
+  width: 130px;
+  height: auto;
 }
 
 .search-bar {
@@ -39,10 +45,38 @@ header {
   gap: 15px;
 }
 
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Estilo do Main */
 main {
+  background-color: #f5f5f5;
   display: flex;
-  padding: 20px;
+  padding: 40px;
   gap: 20px;
+}
+
+.menu-btn, .user-icons button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.user-icons button img,
+.menu-logo .menu-btn img,
+.search-bar button img {
+  width: 30px;
+  height: 30px;
+}
+
+.search-bar button{
+  width: 70px;
+  height: 50px;
 }
 
 .video-section {
@@ -52,71 +86,161 @@ main {
   gap: 15px;
 }
 
+/* Estilo da Sidebar */
 .sidebar {
   display: flex;
-  flex-direction: column; /* Alinha os itens verticalmente */
-  gap: 16px; /* Espaçamento entre os itens */
+  flex-direction: column;
+  gap: 16px;
 }
 
 .video-card {
   display: flex;
-  gap: 10px; /* Espaçamento entre a imagem e o texto */
-  align-items: center; /* Centraliza verticalmente */
+  align-items: flex-start; /* Alinha o topo da imagem com o topo do texto */
+  gap: 10px;
+  width: 100%; /* Garante que o card ocupe toda a largura disponível */
 }
 
 .video-card img {
-  width: 120px; /* Ajuste o tamanho da miniatura */
-  height: 80px;
-  object-fit: cover; /* Garante que a imagem se ajuste ao contêiner */
-}
-
-.avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  width: 230px; /* Ajuste conforme necessário */
+  height: auto;
   object-fit: cover;
+  flex-shrink: 0; /* Impede que a imagem diminua além do tamanho definido */
 }
 
+.video-info-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2px;
+  flex: 1;
+}
+
+.video-card h2 {
+  font-size: 1.2rem;
+  min-height: 12px;
+}
+
+.video-card p {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Estilo da seção de ações do vídeo */
 .video-actions {
   display: flex;
-  justify-content: space-between; /* Espaço entre os grupos */
-  align-items: center; /* Alinha verticalmente */
-  margin-top: 10px;
+  justify-content: space-between;
+  width: 95%;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap; /* quebra em telas menores */
+}
+
+.video-frame {
+  width: 95%;
+  height: 500px;
+}
+
+h1 {
+  width: 95%;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .channel-info {
   display: flex;
-  align-items: center; /* Alinha verticalmente os itens */
-  gap: 10px; /* Espaçamento entre os itens */
+  align-items: center;
+  gap: 12px;
+}
+
+.channel-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  gap: 4px;
+}
+
+.channel-name {
+  font-weight: bold; /* Destaque para o nome do canal */
+}
+
+.channel-info .channel-name,
+.channel-info .subscribers {
+  display: block;
 }
 
 .channel-avatar {
   width: 40px;
   height: 40px;
-  border-radius: 50%; /* Torna o avatar redondo */
+  border-radius: 50%;
 }
 
+.subscribers {
+  font-size: 14px;
+  color: #666; /* Cor mais clara para diferenciar */
+}
+
+.subscribe-btn {
+  background-color: #cc0000;
+  color: white;
+  border: none;
+  padding: 12px 26px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.subscribe-btn:hover {
+  background-color: #b30000;
+}
+
+/* Botões de ação */
 .action-buttons {
   display: flex;
-  gap: 10px; /* Espaçamento entre os botões */
+  align-items: center;
+  gap: 16px;
 }
 
 .action-buttons button {
-  display: flex; /* Alinha os itens horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-  background: none; /* Remove o fundo */
-  border: none; /* Remove a borda */
-  padding: 5px; /* Adiciona um pequeno espaçamento interno */
-  cursor: pointer; /* Mostra o cursor de clique */
-  gap: 5px; /* Espaçamento entre a imagem e o texto */
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 6px 8px;
+  cursor: pointer;
+  gap: 6px;
 }
 
 .action-buttons button img {
-  width: 20px; /* Ajuste o tamanho da imagem */
+  width: 20px;
   height: 20px;
 }
 
 .action-buttons button span {
-  font-size: 14px; /* Ajuste o tamanho do texto */
-  color: #333; /* Cor do texto */
+  font-size: 14px;
+  color: #333;
+}
+
+.video-stats {
+  font-size: 14px;
+  color: #606060;
+  margin-top: 20px;
+}
+
+.video-stats .views {
+  color: #000;
+  font-weight: bold;
+}
+
+.video-stats .date {
+  color: #000;
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+.video-description {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #0f0f0f;
+  line-height: 1.4;
 }
